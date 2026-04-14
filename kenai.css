@@ -1,0 +1,737 @@
+/* ============================================================
+   KENAI — Material Design 3 CSS Framework
+   Version: 0.1.0
+   A stock Android / Pixel-inspired CSS framework
+   ============================================================ */
+
+/* ============================================================
+   1. DESIGN TOKENS — COLOR SYSTEM
+   ============================================================ */
+
+:root,
+[data-theme="light"] {
+
+  /* --- Primary (Blue — Pixel-inspired) --- */
+  --md-primary:              #1B6EF3;
+  --md-on-primary:           #FFFFFF;
+  --md-primary-container:    #D8E3FF;
+  --md-on-primary-container: #001551;
+
+  /* --- Secondary --- */
+  --md-secondary:              #565F71;
+  --md-on-secondary:           #FFFFFF;
+  --md-secondary-container:    #DAE2F9;
+  --md-on-secondary-container: #131C2C;
+
+  /* --- Tertiary --- */
+  --md-tertiary:              #715573;
+  --md-on-tertiary:           #FFFFFF;
+  --md-tertiary-container:    #FBD7FC;
+  --md-on-tertiary-container: #29132D;
+
+  /* --- Error --- */
+  --md-error:              #BA1A1A;
+  --md-on-error:           #FFFFFF;
+  --md-error-container:    #FFDAD6;
+  --md-on-error-container: #410002;
+
+  /* --- Surface & Background --- */
+  --md-background:         #F9F9FF;
+  --md-on-background:      #191C20;
+  --md-surface:            #F9F9FF;
+  --md-on-surface:         #191C20;
+  --md-surface-variant:    #E1E2EC;
+  --md-on-surface-variant: #44474F;
+
+  /* --- Surface Tones (Elevation via tint) --- */
+  --md-surface-1: color-mix(in srgb, var(--md-primary) 5%,  var(--md-surface));
+  --md-surface-2: color-mix(in srgb, var(--md-primary) 8%,  var(--md-surface));
+  --md-surface-3: color-mix(in srgb, var(--md-primary) 11%, var(--md-surface));
+  --md-surface-4: color-mix(in srgb, var(--md-primary) 12%, var(--md-surface));
+  --md-surface-5: color-mix(in srgb, var(--md-primary) 14%, var(--md-surface));
+
+  /* --- Outline --- */
+  --md-outline:         #74777F;
+  --md-outline-variant: #C4C6D0;
+
+  /* --- Inverse --- */
+  --md-inverse-surface:    #2E3036;
+  --md-inverse-on-surface: #F0F0F7;
+  --md-inverse-primary:    #ADC6FF;
+
+  /* --- Scrim & Shadow --- */
+  --md-scrim:  #000000;
+  --md-shadow: #000000;
+}
+
+[data-theme="dark"] {
+
+  /* --- Primary --- */
+  --md-primary:              #ADC6FF;
+  --md-on-primary:           #002A77;
+  --md-primary-container:    #0047A8;
+  --md-on-primary-container: #D8E3FF;
+
+  /* --- Secondary --- */
+  --md-secondary:              #BEC6DC;
+  --md-on-secondary:           #283040;
+  --md-secondary-container:    #3E4758;
+  --md-on-secondary-container: #DAE2F9;
+
+  /* --- Tertiary --- */
+  --md-tertiary:              #DEBCDF;
+  --md-on-tertiary:           #3F2844;
+  --md-tertiary-container:    #583E5B;
+  --md-on-tertiary-container: #FBD7FC;
+
+  /* --- Error --- */
+  --md-error:              #FFB4AB;
+  --md-on-error:           #690005;
+  --md-error-container:    #93000A;
+  --md-on-error-container: #FFDAD6;
+
+  /* --- Surface & Background --- */
+  --md-background:         #111318;
+  --md-on-background:      #E2E2E9;
+  --md-surface:            #111318;
+  --md-on-surface:         #E2E2E9;
+  --md-surface-variant:    #44474F;
+  --md-on-surface-variant: #C4C6D0;
+
+  /* --- Surface Tones --- */
+  --md-surface-1: color-mix(in srgb, var(--md-primary) 5%,  var(--md-surface));
+  --md-surface-2: color-mix(in srgb, var(--md-primary) 8%,  var(--md-surface));
+  --md-surface-3: color-mix(in srgb, var(--md-primary) 11%, var(--md-surface));
+  --md-surface-4: color-mix(in srgb, var(--md-primary) 12%, var(--md-surface));
+  --md-surface-5: color-mix(in srgb, var(--md-primary) 14%, var(--md-surface));
+
+  /* --- Outline --- */
+  --md-outline:         #8E9099;
+  --md-outline-variant: #44474F;
+
+  /* --- Inverse --- */
+  --md-inverse-surface:    #E2E2E9;
+  --md-inverse-on-surface: #2E3036;
+  --md-inverse-primary:    #1B6EF3;
+
+  /* --- Scrim & Shadow --- */
+  --md-scrim:  #000000;
+  --md-shadow: #000000;
+}
+
+
+/* ============================================================
+   2. DESIGN TOKENS — TYPOGRAPHY
+   ============================================================ */
+
+:root {
+  /* --- Font Families --- */
+  --md-font-brand:  'Google Sans', 'Product Sans', sans-serif;
+  --md-font-plain:  'Roboto', sans-serif;
+  --md-font-mono:   'Roboto Mono', monospace;
+
+  /* --- Display --- */
+  --md-display-large-size:    3.5625rem;   /* 57px */
+  --md-display-large-line:    4rem;        /* 64px */
+  --md-display-large-weight:  400;
+  --md-display-large-tracking: -0.015625rem;
+
+  --md-display-medium-size:   2.8125rem;  /* 45px */
+  --md-display-medium-line:   3.25rem;
+  --md-display-medium-weight: 400;
+  --md-display-medium-tracking: 0;
+
+  --md-display-small-size:    2.25rem;    /* 36px */
+  --md-display-small-line:    2.75rem;
+  --md-display-small-weight:  400;
+  --md-display-small-tracking: 0;
+
+  /* --- Headline --- */
+  --md-headline-large-size:    2rem;      /* 32px */
+  --md-headline-large-line:    2.5rem;
+  --md-headline-large-weight:  400;
+  --md-headline-large-tracking: 0;
+
+  --md-headline-medium-size:   1.75rem;  /* 28px */
+  --md-headline-medium-line:   2.25rem;
+  --md-headline-medium-weight: 400;
+  --md-headline-medium-tracking: 0;
+
+  --md-headline-small-size:    1.5rem;   /* 24px */
+  --md-headline-small-line:    2rem;
+  --md-headline-small-weight:  400;
+  --md-headline-small-tracking: 0;
+
+  /* --- Title --- */
+  --md-title-large-size:    1.375rem;   /* 22px */
+  --md-title-large-line:    1.75rem;
+  --md-title-large-weight:  400;
+  --md-title-large-tracking: 0;
+
+  --md-title-medium-size:   1rem;
+  --md-title-medium-line:   1.5rem;
+  --md-title-medium-weight: 500;
+  --md-title-medium-tracking: 0.009375rem;
+
+  --md-title-small-size:    0.875rem;
+  --md-title-small-line:    1.25rem;
+  --md-title-small-weight:  500;
+  --md-title-small-tracking: 0.00625rem;
+
+  /* --- Body --- */
+  --md-body-large-size:    1rem;
+  --md-body-large-line:    1.5rem;
+  --md-body-large-weight:  400;
+  --md-body-large-tracking: 0.03125rem;
+
+  --md-body-medium-size:   0.875rem;
+  --md-body-medium-line:   1.25rem;
+  --md-body-medium-weight: 400;
+  --md-body-medium-tracking: 0.015625rem;
+
+  --md-body-small-size:    0.75rem;
+  --md-body-small-line:    1rem;
+  --md-body-small-weight:  400;
+  --md-body-small-tracking: 0.025rem;
+
+  /* --- Label --- */
+  --md-label-large-size:    0.875rem;
+  --md-label-large-line:    1.25rem;
+  --md-label-large-weight:  500;
+  --md-label-large-tracking: 0.00625rem;
+
+  --md-label-medium-size:   0.75rem;
+  --md-label-medium-line:   1rem;
+  --md-label-medium-weight: 500;
+  --md-label-medium-tracking: 0.03125rem;
+
+  --md-label-small-size:    0.6875rem;
+  --md-label-small-line:    1rem;
+  --md-label-small-weight:  500;
+  --md-label-small-tracking: 0.03125rem;
+}
+
+
+/* ============================================================
+   3. DESIGN TOKENS — SHAPE
+   ============================================================ */
+
+:root {
+  --md-shape-none:        0px;
+  --md-shape-extra-small: 4px;
+  --md-shape-small:       8px;
+  --md-shape-medium:      12px;
+  --md-shape-large:       16px;
+  --md-shape-extra-large: 28px;
+  --md-shape-full:        9999px;
+}
+
+
+/* ============================================================
+   4. DESIGN TOKENS — ELEVATION (Shadows)
+   ============================================================ */
+
+:root {
+  --md-elevation-0: none;
+  --md-elevation-1: 0px 1px 2px rgba(0,0,0,.3),  0px 1px 3px 1px rgba(0,0,0,.15);
+  --md-elevation-2: 0px 1px 2px rgba(0,0,0,.3),  0px 2px 6px 2px rgba(0,0,0,.15);
+  --md-elevation-3: 0px 4px 8px 3px rgba(0,0,0,.15), 0px 1px 3px rgba(0,0,0,.3);
+  --md-elevation-4: 0px 6px 10px 4px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.3);
+  --md-elevation-5: 0px 8px 12px 6px rgba(0,0,0,.15), 0px 4px 4px rgba(0,0,0,.3);
+}
+
+
+/* ============================================================
+   5. DESIGN TOKENS — MOTION
+   ============================================================ */
+
+:root {
+  /* Durations */
+  --md-duration-short-1:  50ms;
+  --md-duration-short-2:  100ms;
+  --md-duration-short-3:  150ms;
+  --md-duration-short-4:  200ms;
+  --md-duration-medium-1: 250ms;
+  --md-duration-medium-2: 300ms;
+  --md-duration-medium-3: 350ms;
+  --md-duration-medium-4: 400ms;
+  --md-duration-long-1:   450ms;
+  --md-duration-long-2:   500ms;
+  --md-duration-long-3:   550ms;
+  --md-duration-long-4:   600ms;
+  --md-duration-extra-long-1: 700ms;
+  --md-duration-extra-long-2: 800ms;
+  --md-duration-extra-long-3: 900ms;
+  --md-duration-extra-long-4: 1000ms;
+
+  /* Easing */
+  --md-easing-linear:           cubic-bezier(0, 0, 1, 1);
+  --md-easing-standard:         cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-standard-decel:   cubic-bezier(0, 0, 0, 1);
+  --md-easing-standard-accel:   cubic-bezier(0.3, 0, 1, 1);
+  --md-easing-emphasized:       cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-emphasized-decel: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-easing-emphasized-accel: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-easing-legacy:           cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   6. DESIGN TOKENS — SPACING
+   ============================================================ */
+
+:root {
+  --md-spacing-1:  4px;
+  --md-spacing-2:  8px;
+  --md-spacing-3:  12px;
+  --md-spacing-4:  16px;
+  --md-spacing-5:  20px;
+  --md-spacing-6:  24px;
+  --md-spacing-7:  28px;
+  --md-spacing-8:  32px;
+  --md-spacing-9:  36px;
+  --md-spacing-10: 40px;
+  --md-spacing-12: 48px;
+  --md-spacing-14: 56px;
+  --md-spacing-16: 64px;
+  --md-spacing-20: 80px;
+  --md-spacing-24: 96px;
+}
+
+
+/* ============================================================
+   7. CSS RESET — M3 Opinionated
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--md-background);
+  color: var(--md-on-background);
+  font-family: var(--md-font-plain);
+  font-size: var(--md-body-large-size);
+  line-height: var(--md-body-large-line);
+  font-weight: var(--md-body-large-weight);
+  letter-spacing: var(--md-body-large-tracking);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  transition:
+    background-color var(--md-duration-medium-2) var(--md-easing-standard),
+    color var(--md-duration-medium-2) var(--md-easing-standard);
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  max-width: 100%;
+}
+
+img, video {
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: var(--md-primary);
+  text-decoration: none;
+  transition: opacity var(--md-duration-short-3) var(--md-easing-standard);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--md-outline-variant);
+  margin: var(--md-spacing-4) 0;
+}
+
+code, kbd, samp, pre {
+  font-family: var(--md-font-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  background: var(--md-surface-variant);
+  color: var(--md-on-surface-variant);
+  padding: var(--md-spacing-4);
+  border-radius: var(--md-shape-medium);
+  overflow-x: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--md-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-shape-extra-small);
+}
+
+::selection {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-outline-variant);
+  border-radius: var(--md-shape-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-outline);
+}
+
+
+/* ============================================================
+   8. TYPOGRAPHY CLASSES
+   ============================================================ */
+
+/* Display */
+.display-large {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-display-large-size);
+  line-height: var(--md-display-large-line);
+  font-weight: var(--md-display-large-weight);
+  letter-spacing: var(--md-display-large-tracking);
+}
+.display-medium {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-display-medium-size);
+  line-height: var(--md-display-medium-line);
+  font-weight: var(--md-display-medium-weight);
+  letter-spacing: var(--md-display-medium-tracking);
+}
+.display-small {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-display-small-size);
+  line-height: var(--md-display-small-line);
+  font-weight: var(--md-display-small-weight);
+  letter-spacing: var(--md-display-small-tracking);
+}
+
+/* Headline */
+.headline-large {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-headline-large-size);
+  line-height: var(--md-headline-large-line);
+  font-weight: var(--md-headline-large-weight);
+  letter-spacing: var(--md-headline-large-tracking);
+}
+.headline-medium {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-headline-medium-size);
+  line-height: var(--md-headline-medium-line);
+  font-weight: var(--md-headline-medium-weight);
+  letter-spacing: var(--md-headline-medium-tracking);
+}
+.headline-small {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-headline-small-size);
+  line-height: var(--md-headline-small-line);
+  font-weight: var(--md-headline-small-weight);
+  letter-spacing: var(--md-headline-small-tracking);
+}
+
+/* Title */
+.title-large {
+  font-family: var(--md-font-brand);
+  font-size: var(--md-title-large-size);
+  line-height: var(--md-title-large-line);
+  font-weight: var(--md-title-large-weight);
+  letter-spacing: var(--md-title-large-tracking);
+}
+.title-medium {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-title-medium-size);
+  line-height: var(--md-title-medium-line);
+  font-weight: var(--md-title-medium-weight);
+  letter-spacing: var(--md-title-medium-tracking);
+}
+.title-small {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-title-small-size);
+  line-height: var(--md-title-small-line);
+  font-weight: var(--md-title-small-weight);
+  letter-spacing: var(--md-title-small-tracking);
+}
+
+/* Body */
+.body-large {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-body-large-size);
+  line-height: var(--md-body-large-line);
+  font-weight: var(--md-body-large-weight);
+  letter-spacing: var(--md-body-large-tracking);
+}
+.body-medium {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-body-medium-size);
+  line-height: var(--md-body-medium-line);
+  font-weight: var(--md-body-medium-weight);
+  letter-spacing: var(--md-body-medium-tracking);
+}
+.body-small {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-body-small-size);
+  line-height: var(--md-body-small-line);
+  font-weight: var(--md-body-small-weight);
+  letter-spacing: var(--md-body-small-tracking);
+}
+
+/* Label */
+.label-large {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-label-large-size);
+  line-height: var(--md-label-large-line);
+  font-weight: var(--md-label-large-weight);
+  letter-spacing: var(--md-label-large-tracking);
+}
+.label-medium {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-line);
+  font-weight: var(--md-label-medium-weight);
+  letter-spacing: var(--md-label-medium-tracking);
+}
+.label-small {
+  font-family: var(--md-font-plain);
+  font-size: var(--md-label-small-size);
+  line-height: var(--md-label-small-line);
+  font-weight: var(--md-label-small-weight);
+  letter-spacing: var(--md-label-small-tracking);
+}
+
+/* Semantic HTML Mapping */
+h1 { @extend .headline-large; font-family: var(--md-font-brand); font-size: var(--md-headline-large-size); line-height: var(--md-headline-large-line); font-weight: 400; }
+h2 { font-family: var(--md-font-brand); font-size: var(--md-headline-medium-size); line-height: var(--md-headline-medium-line); font-weight: 400; }
+h3 { font-family: var(--md-font-brand); font-size: var(--md-headline-small-size); line-height: var(--md-headline-small-line); font-weight: 400; }
+h4 { font-family: var(--md-font-brand); font-size: var(--md-title-large-size); line-height: var(--md-title-large-line); font-weight: 400; }
+h5 { font-family: var(--md-font-plain); font-size: var(--md-title-medium-size); line-height: var(--md-title-medium-line); font-weight: 500; }
+h6 { font-family: var(--md-font-plain); font-size: var(--md-title-small-size); line-height: var(--md-title-small-line); font-weight: 500; }
+
+
+/* ============================================================
+   9. THEME TOGGLE UTILITY
+   ============================================================ */
+
+.kenai-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--md-shape-full);
+  background: var(--md-surface-variant);
+  color: var(--md-on-surface-variant);
+  cursor: pointer;
+  border: none;
+  transition:
+    background-color var(--md-duration-short-4) var(--md-easing-standard),
+    color var(--md-duration-short-4) var(--md-easing-standard),
+    transform var(--md-duration-short-3) var(--md-easing-standard);
+}
+
+.kenai-theme-toggle:hover {
+  background: var(--md-surface-3);
+}
+
+.kenai-theme-toggle:active {
+  transform: scale(0.92);
+}
+
+/* Icon visibility */
+.kenai-theme-toggle .icon-light { display: none; }
+.kenai-theme-toggle .icon-dark  { display: block; }
+[data-theme="dark"] .kenai-theme-toggle .icon-light { display: block; }
+[data-theme="dark"] .kenai-theme-toggle .icon-dark  { display: none; }
+
+
+/* ============================================================
+   10. UTILITY CLASSES
+   ============================================================ */
+
+/* Colors */
+.text-primary            { color: var(--md-primary); }
+.text-secondary          { color: var(--md-secondary); }
+.text-tertiary           { color: var(--md-tertiary); }
+.text-error              { color: var(--md-error); }
+.text-on-surface         { color: var(--md-on-surface); }
+.text-on-surface-variant { color: var(--md-on-surface-variant); }
+
+.bg-surface          { background-color: var(--md-surface); }
+.bg-surface-variant  { background-color: var(--md-surface-variant); }
+.bg-surface-1        { background-color: var(--md-surface-1); }
+.bg-surface-2        { background-color: var(--md-surface-2); }
+.bg-surface-3        { background-color: var(--md-surface-3); }
+.bg-primary-container   { background-color: var(--md-primary-container); }
+.bg-secondary-container { background-color: var(--md-secondary-container); }
+.bg-tertiary-container  { background-color: var(--md-tertiary-container); }
+.bg-error-container     { background-color: var(--md-error-container); }
+
+/* Shape */
+.rounded-none  { border-radius: var(--md-shape-none); }
+.rounded-xs    { border-radius: var(--md-shape-extra-small); }
+.rounded-sm    { border-radius: var(--md-shape-small); }
+.rounded-md    { border-radius: var(--md-shape-medium); }
+.rounded-lg    { border-radius: var(--md-shape-large); }
+.rounded-xl    { border-radius: var(--md-shape-extra-large); }
+.rounded-full  { border-radius: var(--md-shape-full); }
+
+/* Elevation */
+.elevation-0 { box-shadow: var(--md-elevation-0); }
+.elevation-1 { box-shadow: var(--md-elevation-1); background-color: var(--md-surface-1); }
+.elevation-2 { box-shadow: var(--md-elevation-2); background-color: var(--md-surface-2); }
+.elevation-3 { box-shadow: var(--md-elevation-3); background-color: var(--md-surface-3); }
+.elevation-4 { box-shadow: var(--md-elevation-4); background-color: var(--md-surface-4); }
+.elevation-5 { box-shadow: var(--md-elevation-5); background-color: var(--md-surface-5); }
+
+/* Spacing */
+.p-1  { padding: var(--md-spacing-1); }
+.p-2  { padding: var(--md-spacing-2); }
+.p-3  { padding: var(--md-spacing-3); }
+.p-4  { padding: var(--md-spacing-4); }
+.p-6  { padding: var(--md-spacing-6); }
+.p-8  { padding: var(--md-spacing-8); }
+
+.px-1 { padding-inline: var(--md-spacing-1); }
+.px-2 { padding-inline: var(--md-spacing-2); }
+.px-3 { padding-inline: var(--md-spacing-3); }
+.px-4 { padding-inline: var(--md-spacing-4); }
+.px-6 { padding-inline: var(--md-spacing-6); }
+.px-8 { padding-inline: var(--md-spacing-8); }
+
+.py-1 { padding-block: var(--md-spacing-1); }
+.py-2 { padding-block: var(--md-spacing-2); }
+.py-3 { padding-block: var(--md-spacing-3); }
+.py-4 { padding-block: var(--md-spacing-4); }
+.py-6 { padding-block: var(--md-spacing-6); }
+.py-8 { padding-block: var(--md-spacing-8); }
+
+.m-1  { margin: var(--md-spacing-1); }
+.m-2  { margin: var(--md-spacing-2); }
+.m-4  { margin: var(--md-spacing-4); }
+.m-6  { margin: var(--md-spacing-6); }
+.m-8  { margin: var(--md-spacing-8); }
+.mx-auto { margin-inline: auto; }
+
+.gap-1 { gap: var(--md-spacing-1); }
+.gap-2 { gap: var(--md-spacing-2); }
+.gap-3 { gap: var(--md-spacing-3); }
+.gap-4 { gap: var(--md-spacing-4); }
+.gap-6 { gap: var(--md-spacing-6); }
+.gap-8 { gap: var(--md-spacing-8); }
+
+/* Layout */
+.flex         { display: flex; }
+.flex-col     { flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start  { align-items: flex-start; }
+.items-end    { align-items: flex-end; }
+.justify-center  { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end     { justify-content: flex-end; }
+.justify-start   { justify-content: flex-start; }
+.flex-1    { flex: 1; }
+.flex-none { flex: none; }
+
+.grid        { display: grid; }
+.grid-2      { grid-template-columns: repeat(2, 1fr); }
+.grid-3      { grid-template-columns: repeat(3, 1fr); }
+.grid-4      { grid-template-columns: repeat(4, 1fr); }
+.grid-auto   { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+/* Width / Container */
+.w-full     { width: 100%; }
+.w-auto     { width: auto; }
+.max-w-sm   { max-width: 600px; }
+.max-w-md   { max-width: 840px; }
+.max-w-lg   { max-width: 1040px; }
+.max-w-xl   { max-width: 1200px; }
+.container  { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--md-spacing-4); }
+
+/* Text Alignment */
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+/* Display */
+.hidden    { display: none; }
+.block     { display: block; }
+.inline    { display: inline; }
+.inline-flex { display: inline-flex; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto   { overflow: auto; }
+
+/* Opacity */
+.opacity-50   { opacity: 0.5; }
+.opacity-75   { opacity: 0.75; }
+.opacity-disabled { opacity: 0.38; pointer-events: none; }
+
+/* Surface / Divider */
+.divider {
+  height: 1px;
+  background-color: var(--md-outline-variant);
+  border: none;
+  margin: 0;
+}
+
+/* State Layer (hover/pressed interactions) */
+.state-layer {
+  position: relative;
+  overflow: hidden;
+}
+.state-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--md-duration-short-3) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: inherit;
+}
+.state-layer:hover::after  { opacity: 0.08; }
+.state-layer:active::after { opacity: 0.12; }
+
+/* Ripple wrapper (JS-powered) */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
