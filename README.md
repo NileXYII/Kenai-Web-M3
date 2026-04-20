@@ -1,4 +1,4 @@
-# KENAI
+# KENAI v0.2.0 Alpha
 ### Material Design 3 CSS Framework — Stock Android / Pixel Aesthetic
 
 > Link it. Use it. Ship it.
